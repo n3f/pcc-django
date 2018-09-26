@@ -3,6 +3,8 @@
 from django.conf.urls import url
 import django.contrib.auth.views as auth_views
 
+from . import views
+
 app_name = 'users'
 urlpatterns = [
     # Login page.
@@ -12,4 +14,6 @@ urlpatterns = [
     url(r'^logout/$',
         auth_views.LogoutView.as_view(next_page='learning_logs:index'),
         name='logout'),
+    # Registration page
+    url(r'^register/$', views.register, name='register'),
 ]
